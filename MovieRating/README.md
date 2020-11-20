@@ -11,6 +11,9 @@
 7. Any user can rate for any movie in the list, but can score for one movie only once.
 8. The score for each movie uses a hundred mark system.
 
+## RESTful APIs
+The [RESTful APIs](RESTAPIs.md) between frontend and backend.
+
 ## Authors
 
 * **Zhaoping Yu** - *Initial work* - yuzhaoping1970@gmail.com
