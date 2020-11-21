@@ -41,9 +41,9 @@ NOTE: each of the APIs will return the unique error response format if some erro
     "movies": [
       {
         "title": "<The movie's title, unique for each category>",
-        "poster": "<The poster image url of the movie, optional>",
-        "majorStaff": "<The major staffs of the movie, optional>",
-        "briefIntroduction": "<The brief introduction of the movie, optional>"
+        "posterUrl": "<The poster image url of the movie, optional>",
+        "majorStaffs": "<The major staffs of the movie, optional>",
+        "briefIntro": "<The brief introduction of the movie, optional>"
       },
       ...
     ]
@@ -60,9 +60,9 @@ NOTE: each of the APIs will return the unique error response format if some erro
       {
         "movieId": "<The generated unique movie id>",
         "title": "<The movie's title, unique for each category>",
-        "poster": "<The poster image url of the movie, optional>",
-        "majorStaff": "<The major staffs of the movie, optional>",
-        "briefIntroduction": "<The brief introduction of the movie, optional>",
+        "posterUrl": "<The poster image url of the movie, optional>",
+        "majorStaffs": "<The major staffs of the movie, optional>",
+        "briefIntro": "<The brief introduction of the movie, optional>",
         "totalScore": 0,
         "numOfRatedUsers": 0
       },
@@ -81,9 +81,9 @@ NOTE: each of the APIs will return the unique error response format if some erro
     "movies": [
       {
         "title": "<The movie's title, unique for each category>",
-        "poster": "<The poster image url of the movie, optional>",
-        "majorStaff": "<The major staffs of the movie, optional>",
-        "briefIntroduction": "<The brief introduction of the movie, optional>"
+        "posterUrl": "<The poster image url of the movie, optional>",
+        "majorStaffs": "<The major staffs of the movie, optional>",
+        "briefIntro": "<The brief introduction of the movie, optional>"
       },
       ...
     ]
@@ -100,9 +100,9 @@ NOTE: each of the APIs will return the unique error response format if some erro
       {
         "movieId": "<The generated unique movie id>",
         "title": "<The movie's title, unique for each category>",
-        "poster": "<The poster image url of the movie, optional>",
-        "majorStaff": "<The major staffs of the movie, optional>",
-        "briefIntroduction": "<The brief introduction of the movie, optional>",
+        "posterUrl": "<The poster image url of the movie, optional>",
+        "majorStaffs": "<The major staffs of the movie, optional>",
+        "briefIntro": "<The brief introduction of the movie, optional>",
         "totalScore": "<The total score rated by users>",
         "numOfRatedUsers": "<The number of rated users>",
         "scoreByUser": "<The score that the current user rated, undefined if the current user has not rated for the movie>"
@@ -125,9 +125,9 @@ NOTE: each of the APIs will return the unique error response format if some erro
       {
         "movieId": "<The generated unique movie id>",
         "title": "<The movie's title, unique for each category>",
-        "poster": "<The poster image url of the movie, optional>",
-        "majorStaff": "<The major staffs of the movie, optional>",
-        "briefIntroduction": "<The brief introduction of the movie, optional>",
+        "posterUrl": "<The poster image url of the movie, optional>",
+        "majorStaffs": "<The major staffs of the movie, optional>",
+        "briefIntro": "<The brief introduction of the movie, optional>",
         "totalScore": "<The total score rated by users>",
         "numOfRatedUsers": "<The number of rated users>",
         "scoreByUser": "<The score that the current user rated, undefined if the current user has not rated for the movie>"
@@ -164,9 +164,9 @@ NOTE: each of the APIs will return the unique error response format if some erro
       {
         "movieId": "<The generated unique movie id>",
         "title": "<The movie's title, unique for each category>",
-        "poster": "<The poster image url of the movie, optional>",
-        "majorStaff": "<The major staffs of the movie, optional>",
-        "briefIntroduction": "<The brief introduction of the movie, optional>",
+        "posterUrl": "<The poster image url of the movie, optional>",
+        "majorStaffs": "<The major staffs of the movie, optional>",
+        "briefIntro": "<The brief introduction of the movie, optional>",
         "totalScore": "<The total score rated by users>",
         "numOfRatedUsers": "<The number of rated users>",
         "scoreByUser": "<The score that the current user rated, undefined if the current user has not rated for the movie>"
