@@ -32,21 +32,12 @@ NOTE: each of the APIs will return the unique error response format if some erro
 ```
 
 ### `POST /api/v1/movie_ratings`
-  Created a movie rating contacts.
+  Create a movie rating contact.
 * Request body:
 ```
 {
   "movieRating": {
-    "category": "<The category of movies for rating>",
-    "movies": [
-      {
-        "title": "<The movie's title, unique for each category>",
-        "posterUrl": "<The poster image url of the movie, optional>",
-        "majorStaffs": "<The major staffs of the movie, optional>",
-        "briefIntro": "<The brief introduction of the movie, optional>"
-      },
-      ...
-    ]
+    "category": "<The category of movies for rating>"
   }
 }
 ```
@@ -55,19 +46,7 @@ NOTE: each of the APIs will return the unique error response format if some erro
 {
   "movieRating": {
     "contactId": "<Use the contact deployed address as it's id>",
-    "category": "<The category of movies for rating>",
-    "movies": [
-      {
-        "movieId": "<The generated unique movie id>",
-        "title": "<The movie's title, unique for each category>",
-        "posterUrl": "<The poster image url of the movie, optional>",
-        "majorStaffs": "<The major staffs of the movie, optional>",
-        "briefIntro": "<The brief introduction of the movie, optional>",
-        "totalScore": 0,
-        "numOfRatedUsers": 0
-      },
-      ...
-    ]
+    "category": "<The category of movies for rating>"
   }
 }
 ```
