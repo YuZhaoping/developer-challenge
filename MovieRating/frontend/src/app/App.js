@@ -11,7 +11,7 @@ import { Root } from './appStyles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 
-const App = (props) => {
+const App = () => {
 
   return (
     <AppThemeProvider>
@@ -21,9 +21,9 @@ const App = (props) => {
       <Root>
 
         <Switch>
-          <Route path="/app" component={ AppLayout } />
+          <Route path='/app' component={ AppLayout } />
 
-          <Redirect to="/app" />
+          <Redirect to='/app' />
         </Switch>
 
       </Root>
