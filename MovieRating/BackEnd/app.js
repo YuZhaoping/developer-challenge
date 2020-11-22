@@ -8,6 +8,12 @@ var apisRouter = require('./routes/apis');
 
 var app = express();
 
+
+import config from './config';
+
+app.config = config;
+
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
