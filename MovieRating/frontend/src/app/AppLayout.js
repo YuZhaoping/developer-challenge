@@ -11,7 +11,7 @@ import pagesRoutes, { defaultPath } from '../pages/routes';
 const AppLayout = () => {
 
   return (
-    <Container component='main' maxWidth='xs'>
+    <Container component='main'>
       <Switch>
         {pagesRoutes.map((route, index) => (
           <Route
