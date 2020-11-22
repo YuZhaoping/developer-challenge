@@ -4,12 +4,15 @@
 import React from 'react';
 
 
+import Container from './Container';
+
+
+const title = 'Ratings';
+
 const Layout = () => {
 
   return (
-    <div>
-      TODO: ratings' page layout
-    </div>
+    <Container title = { title } />
   );
 };
 
