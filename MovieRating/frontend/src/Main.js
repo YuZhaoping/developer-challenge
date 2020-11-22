@@ -6,7 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 
 
 // app root component
-import App from './App';
+import App from './app/App';
 
 import configureStore, { history } from './store';
 
