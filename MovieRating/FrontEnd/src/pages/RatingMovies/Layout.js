@@ -2,16 +2,21 @@
  * Rating movies' page layout
  */
 import React from 'react';
+import { withRouter } from "react-router";
 
 
-const Layout = () => {
+const Layout = (props) => {
+  const { match } = props;
+
+  const contactId = match.params.contactId;
+
 
   return (
     <div>
-      TODO: rating movies' page layout
+      { `TODO: ${contactId} movies' page layout` }
     </div>
   );
 };
 
 
-export default Layout;
+export default withRouter(Layout);
