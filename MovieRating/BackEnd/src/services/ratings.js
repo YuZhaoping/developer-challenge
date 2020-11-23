@@ -1,11 +1,17 @@
 /* The movie ratings' service */
 
+import memoryDataStore from '../repositories/memory-store';
+
+var ratingsDataStore = memoryDataStore;
+
+
 const init = async ({ providers }) => {
+  ratingsDataStore = providers.ratingsDataStore;
 };
 
 
-const getAllMovieRatings = () => {
-  return [];
+const getAllMovieRatings = async () => {
+  return await ratingsDataStore.findAllRatings();
 };
 
 
@@ -16,7 +22,7 @@ function createIdByCategory(category) {
   return crypto.createHash('md5').update(category).digest('hex');
 }
 
-const createMovieRating = (movieRatingDTO) => {
+const createMovieRating = async (movieRatingDTO) => {
   const category = movieRatingDTO.category;
 
   const contactId = createIdByCategory(category);
@@ -25,6 +31,8 @@ const createMovieRating = (movieRatingDTO) => {
     contactId,
     ...movieRatingDTO
   };
+
+  await ratingsDataStore.saveRating(movieRating);
 
   return movieRating;
 };
@@ -35,5 +43,6 @@ const ratingService = {
   getAllMovieRatings,
   createMovieRating
 };
+
 
 export default ratingService;
