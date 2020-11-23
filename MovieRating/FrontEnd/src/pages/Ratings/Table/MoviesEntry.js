@@ -8,7 +8,7 @@ import { ratingsBasePath } from '../../routes';
 
 
 const MoviesEntry = ({ rowData }) => {
-  const contactId = rowData.contactId;
+  const contactId = rowData ? rowData.contactId: '';
 
   return (
     <Link
