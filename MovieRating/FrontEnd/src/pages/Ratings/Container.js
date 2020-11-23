@@ -23,14 +23,11 @@ const Container = (props) => {
         error => {
           // TODO: reject(error);
           console.log(error);
+
           resolve({data: []});
         }
       );
     });
-  };
-
-  const onRowClick = (event, rowData) => {
-    // TODO
   };
 
   const onRowAdd = newData => {
@@ -43,7 +40,6 @@ const Container = (props) => {
     <Table
       title={ title }
       data={ queryRowsData }
-      onRowClick={ onRowClick }
       onRowAdd={ onRowAdd }
     />
   );

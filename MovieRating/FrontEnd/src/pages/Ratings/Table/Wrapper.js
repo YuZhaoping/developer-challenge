@@ -13,7 +13,6 @@ const TableWrapper = (props) => {
   const {
     title,
     data,
-    onRowClick,
     onRowAdd
   } = props;
 
@@ -22,7 +21,6 @@ const TableWrapper = (props) => {
       title={ title }
       columns={ ratingsColumns }
       data={ data }
-      onRowClick={ onRowClick }
       editable={{
         onRowAdd: onRowAdd
       }}
