@@ -2,7 +2,8 @@ import baseUrl from './baseUrl';
 
 import {
   doGet,
-  doCreate
+  doCreate,
+  doUpdate
 } from '../api/helpers';
 
 
@@ -19,9 +20,33 @@ export const creatRating = (data) => {
 };
 
 
+export const getMoviesOfRating = (contactId) => {
+  const url = `${baseUrl}/${contactId}/movies`;
+
+  return doGet(url);
+};
+
+export const addMovieForRating = (contactId, data) => {
+  const url = `${baseUrl}/${contactId}/movies`;
+
+  return doCreate(url, data);
+};
+
+
+export const scoreMovie = (contactId, movieId, data) => {
+  const url = `${baseUrl}/${contactId}/movies/${movieId}`;
+
+  return doUpdate(url, data, true);
+};
+
+
 const api = {
   getAllRatings,
-  creatRating
+  creatRating,
+  getMoviesOfRating,
+  addMovieForRating,
+  scoreMovie
 };
+
 
 export default api;
