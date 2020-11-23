@@ -5,6 +5,9 @@ import React from 'react';
 import { withRouter } from "react-router";
 
 
+import Container from './Container';
+
+
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
 import Typography from '@material-ui/core/Typography';
@@ -28,6 +31,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
+const title = 'Rating Movies';
+
 const Layout = (props) => {
   const { match } = props;
 
@@ -46,7 +51,10 @@ const Layout = (props) => {
       </div>
 
       <div className={ classes.content } >
-
+        <Container
+          title={ title }
+          contactId={ contactId }
+        />
       </div>
 
     </div>
