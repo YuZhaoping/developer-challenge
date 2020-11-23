@@ -10,6 +10,7 @@ var app = express();
 
 
 import config from './config';
+import loaders from './loaders';
 
 app.config = config;
 
@@ -22,5 +23,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/api/v1', apisRouter);
+
+
+async function startApp() {
+  const providers = await loaders.init({ config, expressApp: app });
+}
+
+startApp();
+
 
 module.exports = app;
