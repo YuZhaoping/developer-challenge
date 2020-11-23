@@ -1,6 +1,8 @@
 import React from 'react';
 
 
+import api from '../../services/ratings/api';
+
 import Table from './Table';
 
 import {
@@ -14,7 +16,17 @@ const Container = (props) => {
 
   const queryRowsData = query => {
     return new Promise((resolve, reject) => {
-      resolve({data: []});
+      api.getMoviesOfRating(contactId).then(
+        apiData => {
+          resolve({data: apiData});
+        },
+        error => {
+          // TODO: reject(error);
+          console.log(error);
+
+          resolve({data: []});
+        }
+      );
     });
   };
 
@@ -22,17 +34,21 @@ const Container = (props) => {
     const data = mapRowToEditData(newData);
 
     return new Promise((resolve, reject) => {
-      resolve(data);
+      return api.addMovieForRating(contactId, data);
     });
   };
 
   const onRowUpdate = (newData, oldData) => {
     const data = mapRowToEditData(newData);
 
+    const scoreByUser = data.scoreByUser;
+
     const movieId = oldData.movieId;
 
     return new Promise((resolve, reject) => {
-      resolve(data);
+      const data = { scoreByUser };
+
+      return api.scoreMovie(contactId, movieId, data);
     });
   };
 
