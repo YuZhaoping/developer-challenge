@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 import {
-  getMovieRatings,
-  createMovieRating,
+  getAllRatings,
+  createRating,
   getMoviesOfRating,
   addMovieForRating,
   scoreMovie
@@ -11,8 +11,8 @@ import {
 
 
 router.route('/movie_ratings')
-  .get(getMovieRatings)
-  .post(createMovieRating);
+  .get(getAllRatings)
+  .post(createRating);
 
 
 router.route('/movie_ratings/:contactId/movies')

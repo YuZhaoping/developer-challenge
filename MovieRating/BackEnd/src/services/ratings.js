@@ -15,7 +15,7 @@ const init = async ({ providers }) => {
 };
 
 
-const getAllMovieRatings = async () => {
+const getAllRatings = async () => {
   return await ratingsDataStore.findAllRatings();
 };
 
@@ -28,17 +28,17 @@ function createIdByName(name) {
 }
 
 
-const createMovieRating = async (movieRatingDTO) => {
-  const contactId = createIdByName(movieRatingDTO.category);
+const createRating = async (ratingDTO) => {
+  const contactId = createIdByName(ratingDTO.category);
 
-  const movieRating = {
+  const rating = {
     contactId,
-    ...movieRatingDTO
+    ...ratingDTO
   };
 
-  await ratingsDataStore.saveRating(movieRating);
+  await ratingsDataStore.saveRating(rating);
 
-  return movieRating;
+  return rating;
 };
 
 
@@ -77,8 +77,8 @@ const scoreMovie = async (contactId, movieId, movieDTO) => {
 
 const ratingService = {
   init,
-  getAllMovieRatings,
-  createMovieRating,
+  getAllRatings,
+  createRating,
   getMoviesOfRating,
   addMovieForRating,
   scoreMovie
