@@ -52,84 +52,37 @@ NOTE: each of the APIs will return the unique error response format if some erro
 }
 ```
 
-### `PATCH /api/v1/movie_ratings/:contactId`
-  Append movies for the exists rating contact.
-* Request body:
+### `GET /api/v1/movie_ratings/:contactId/movies`
+  Get the specified rating contact movies.
+* Response body:
 ```
 {
-  "movies": [
+  "apiVersion": "v1",
+  "data": [
     {
+      "movieId": "<The generated unique movie id>",
       "title": "<The movie's title, unique for each category>",
       "posterUrl": "<The poster image url of the movie, optional>",
       "majorStaffs": "<The major staffs of the movie, optional>",
-      "briefIntro": "<The brief introduction of the movie, optional>"
+      "briefIntro": "<The brief introduction of the movie, optional>",
+      "totalScore": "<The total score rated by users>",
+      "numOfRatedUsers": "<The number of rated users>",
+      "scoreByUser": "<The score that the current user rated, undefined if the current user has not rated for the movie>"
     },
     ...
   ]
 }
 ```
-* Response body:
-```
-{
-  "apiVersion": "v1",
-  "data": {
-    "contactId": "<Use the contact deployed address as it's id>",
-    "category": "<The category of movies for rating>",
-    "movies": [
-      {
-        "movieId": "<The generated unique movie id>",
-        "title": "<The movie's title, unique for each category>",
-        "posterUrl": "<The poster image url of the movie, optional>",
-        "majorStaffs": "<The major staffs of the movie, optional>",
-        "briefIntro": "<The brief introduction of the movie, optional>",
-        "totalScore": "<The total score rated by users>",
-        "numOfRatedUsers": "<The number of rated users>",
-        "scoreByUser": "<The score that the current user rated, undefined if the current user has not rated for the movie>"
-      },
-      ...
-    ]
-  }
-}
-```
 
-### `GET /api/v1/movie_ratings/:contactId`
-  Get the specified category movie rating contact.
-* Response body:
-```
-{
-  "apiVersion": "v1",
-  "data": {
-    "contactId": "<Use the contact deployed address as it's id>",
-    "category": "<The category of movies for rating>",
-    "movies": [
-      {
-        "movieId": "<The generated unique movie id>",
-        "title": "<The movie's title, unique for each category>",
-        "posterUrl": "<The poster image url of the movie, optional>",
-        "majorStaffs": "<The major staffs of the movie, optional>",
-        "briefIntro": "<The brief introduction of the movie, optional>",
-        "totalScore": "<The total score rated by users>",
-        "numOfRatedUsers": "<The number of rated users>",
-        "scoreByUser": "<The score that the current user rated, undefined if the current user has not rated for the movie>"
-      },
-      ...
-    ]
-  }
-}
-```
-
-### `PATCH /api/v1/movie_ratings/:contactId/movies`
-  Rate some movies for the rating contact.
+### `POST /api/v1/movie_ratings/:contactId/movies`
+  Create a movie about the rating contact.
 * Request body:
 ```
 {
-  "movies": [
-    {
-      "movieId": "<The generated unique movie id>",
-      "scoreByUser": "<The score that the current user rated>"
-    },
-    ...
-  ]
+  "title": "<The movie's title, unique for each category>",
+  "posterUrl": "<The poster image url of the movie, optional>",
+  "majorStaffs": "<The major staffs of the movie, optional>",
+  "briefIntro": "<The brief introduction of the movie, optional>"
 }
 ```
 * Response body:
@@ -137,21 +90,39 @@ NOTE: each of the APIs will return the unique error response format if some erro
 {
   "apiVersion": "v1",
   "data": {
-    "contactId": "<Use the contact deployed address as it's id>",
-    "category": "<The category of movies for rating>",
-    "movies": [
-      {
-        "movieId": "<The generated unique movie id>",
-        "title": "<The movie's title, unique for each category>",
-        "posterUrl": "<The poster image url of the movie, optional>",
-        "majorStaffs": "<The major staffs of the movie, optional>",
-        "briefIntro": "<The brief introduction of the movie, optional>",
-        "totalScore": "<The total score rated by users>",
-        "numOfRatedUsers": "<The number of rated users>",
-        "scoreByUser": "<The score that the current user rated, undefined if the current user has not rated for the movie>"
-      },
-      ...
-    ]
+    "movieId": "<The generated unique movie id>",
+    "title": "<The movie's title, unique for each category>",
+    "posterUrl": "<The poster image url of the movie, optional>",
+    "majorStaffs": "<The major staffs of the movie, optional>",
+    "briefIntro": "<The brief introduction of the movie, optional>",
+    "totalScore": "<The total score rated by users>",
+    "numOfRatedUsers": "<The number of rated users>",
+    "scoreByUser": "<The score that the current user rated, undefined if the current user has not rated for the movie>"
+  }
+}
+```
+
+### `PATCH /api/v1/movie_ratings/:contactId/movies/:movieId`
+  Rate the movie about the rating contact.
+* Request body:
+```
+{
+  "scoreByUser": "<The score that the current user rated>"
+}
+```
+* Response body:
+```
+{
+  "apiVersion": "v1",
+  "data": {
+    "movieId": "<The generated unique movie id>",
+    "title": "<The movie's title, unique for each category>",
+    "posterUrl": "<The poster image url of the movie, optional>",
+    "majorStaffs": "<The major staffs of the movie, optional>",
+    "briefIntro": "<The brief introduction of the movie, optional>",
+    "totalScore": "<The total score rated by users>",
+    "numOfRatedUsers": "<The number of rated users>",
+    "scoreByUser": "<The score that the current user rated, undefined if the current user has not rated for the movie>"
   }
 }
 ```
