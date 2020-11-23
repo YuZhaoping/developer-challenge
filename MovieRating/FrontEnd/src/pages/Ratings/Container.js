@@ -1,6 +1,8 @@
 import React from 'react';
 
 
+import api from '../../services/ratings/api';
+
 import Table from './Table';
 
 import {
@@ -14,7 +16,16 @@ const Container = (props) => {
 
   const queryRowsData = query => {
     return new Promise((resolve, reject) => {
-      resolve({data: []});
+      api.getAllRatings().then(
+        apiData => {
+          resolve({data: apiData});
+        },
+        error => {
+          // TODO: reject(error);
+          console.log(error);
+          resolve({data: []});
+        }
+      );
     });
   };
 
@@ -24,10 +35,7 @@ const Container = (props) => {
 
   const onRowAdd = newData => {
     const data = mapRowToEditData(newData);
-
-    return new Promise((resolve, reject) => {
-      resolve(data);
-    });
+    return api.creatRating(data);
   };
 
 
