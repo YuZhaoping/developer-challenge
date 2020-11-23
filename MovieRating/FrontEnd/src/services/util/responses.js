@@ -15,7 +15,7 @@ export function checkStatus(resp) {
 }
 
 export function parseJSON(resp) {
-  if (resp.status == 204) {// No Content
+  if (resp.status === 204) {// No Content
     return new Promise(function(resolve) {
       resolve({});
     });
