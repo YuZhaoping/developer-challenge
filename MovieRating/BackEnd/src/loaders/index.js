@@ -1,8 +1,12 @@
 
-const init = async ({ config, expressApp }) => {
-  // TODO
-  const providers = {
+import ratingsDataStore from '../repositories/memory-store';
 
+
+const init = async ({ config, expressApp }) => {
+  await ratingsDataStore.init({ config });
+
+  const providers = {
+    ratingsDataStore
   };
 
   return providers;
