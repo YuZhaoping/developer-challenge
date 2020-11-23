@@ -3,10 +3,13 @@
 import ratingService from '../services/ratings';
 
 
+const apiVersion = 'v1';
+
+
 export const getMovieRatings = async (req, res, next) => {
   try {
-    const movieRatings = await ratingService.getAllMovieRatings();
-    res.json({ movieRatings });
+    const data = await ratingService.getAllMovieRatings();
+    res.json({ apiVersion, data });
   } catch (e) {
     next(e);
   }
@@ -14,9 +17,9 @@ export const getMovieRatings = async (req, res, next) => {
 
 export const createMovieRating = async (req, res, next) => {
   try {
-    const movieRatingDTO = req.body.movieRating;
-    const movieRating = await ratingService.createMovieRating(movieRatingDTO);
-    res.json({ movieRating });
+    const movieRatingDTO = req.body;
+    const data = await ratingService.createMovieRating(movieRatingDTO);
+    res.json({ apiVersion, data });
   } catch (e) {
     next(e);
   }

@@ -2,6 +2,7 @@
 NOTE: each of the APIs will return the unique error response format if some errors ocurred:
 ```
 {
+  "apiVersion": "v1",
   "error": {
     "code": "<number of error cord>",
     "message": "<The brief description about the error>",
@@ -21,7 +22,8 @@ NOTE: each of the APIs will return the unique error response format if some erro
 * Response body:
 ```
 {
-  "movieRatings": [
+  "apiVersion": "v1",
+  "data": [
     {
       "contactId": "<Use the contact deployed address as it's id>",
       "category": "<The category of movies for rating>"
@@ -36,15 +38,14 @@ NOTE: each of the APIs will return the unique error response format if some erro
 * Request body:
 ```
 {
-  "movieRating": {
-    "category": "<The category of movies for rating>"
-  }
+  "category": "<The category of movies for rating>"
 }
 ```
 * Response body:
 ```
 {
-  "movieRating": {
+  "apiVersion": "v1",
+  "data": {
     "contactId": "<Use the contact deployed address as it's id>",
     "category": "<The category of movies for rating>"
   }
@@ -56,23 +57,22 @@ NOTE: each of the APIs will return the unique error response format if some erro
 * Request body:
 ```
 {
-  "movieRating": {
-    "movies": [
-      {
-        "title": "<The movie's title, unique for each category>",
-        "posterUrl": "<The poster image url of the movie, optional>",
-        "majorStaffs": "<The major staffs of the movie, optional>",
-        "briefIntro": "<The brief introduction of the movie, optional>"
-      },
-      ...
-    ]
-  }
+  "movies": [
+    {
+      "title": "<The movie's title, unique for each category>",
+      "posterUrl": "<The poster image url of the movie, optional>",
+      "majorStaffs": "<The major staffs of the movie, optional>",
+      "briefIntro": "<The brief introduction of the movie, optional>"
+    },
+    ...
+  ]
 }
 ```
 * Response body:
 ```
 {
-  "movieRating": {
+  "apiVersion": "v1",
+  "data": {
     "contactId": "<Use the contact deployed address as it's id>",
     "category": "<The category of movies for rating>",
     "movies": [
@@ -97,7 +97,8 @@ NOTE: each of the APIs will return the unique error response format if some erro
 * Response body:
 ```
 {
-  "movieRating": {
+  "apiVersion": "v1",
+  "data": {
     "contactId": "<Use the contact deployed address as it's id>",
     "category": "<The category of movies for rating>",
     "movies": [
@@ -122,21 +123,20 @@ NOTE: each of the APIs will return the unique error response format if some erro
 * Request body:
 ```
 {
-  "movieRating": {
-    "movies": [
-      {
-        "movieId": "<The generated unique movie id>",
-        "scoreByUser": "<The score that the current user rated>"
-      },
-      ...
-    ]
-  }
+  "movies": [
+    {
+      "movieId": "<The generated unique movie id>",
+      "scoreByUser": "<The score that the current user rated>"
+    },
+    ...
+  ]
 }
 ```
 * Response body:
 ```
 {
-  "movieRating": {
+  "apiVersion": "v1",
+  "data": {
     "contactId": "<Use the contact deployed address as it's id>",
     "category": "<The category of movies for rating>",
     "movies": [
