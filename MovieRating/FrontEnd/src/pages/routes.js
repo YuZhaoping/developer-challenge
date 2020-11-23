@@ -5,7 +5,7 @@ import RatingsPage from './Ratings';
 import RatingMoviesPage from './RatingMovies';
 
 
-const ratingsBasePath = '/app/ratings';
+export const ratingsBasePath = '/app/ratings';
 
 const routes = [
   {
