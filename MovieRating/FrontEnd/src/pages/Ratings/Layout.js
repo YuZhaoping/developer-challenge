@@ -12,7 +12,7 @@ const title = 'Ratings';
 const Layout = () => {
 
   return (
-    <Container title = { title } />
+    <Container title={ title } />
   );
 };
 
