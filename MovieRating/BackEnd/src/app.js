@@ -11,6 +11,7 @@ var app = express();
 
 import config from './config';
 import loaders from './loaders';
+import serviceSupplier from './services/supplier';
 
 app.config = config;
 
@@ -27,6 +28,8 @@ app.use('/api/v1', apisRouter);
 
 async function startApp() {
   const providers = await loaders.init({ config, expressApp: app });
+
+  await serviceSupplier.initServices({ providers });
 }
 
 startApp();

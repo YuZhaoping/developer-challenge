@@ -1,5 +1,9 @@
 /* The movie ratings' service */
 
+const init = async ({ providers }) => {
+};
+
+
 const getAllMovieRatings = () => {
   return [];
 };
@@ -27,6 +31,7 @@ const createMovieRating = (movieRatingDTO) => {
 
 
 const ratingService = {
+  init,
   getAllMovieRatings,
   createMovieRating
 };
