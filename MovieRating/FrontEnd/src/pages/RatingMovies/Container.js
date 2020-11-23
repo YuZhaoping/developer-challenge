@@ -33,8 +33,19 @@ const Container = (props) => {
   const onRowAdd = newData => {
     const data = mapRowToEditData(newData);
 
+    // return api.addMovieForRating(contactId, data);
     return new Promise((resolve, reject) => {
-      return api.addMovieForRating(contactId, data);
+      api.addMovieForRating(contactId, data).then(
+        apiData => {
+          resolve(apiData);
+        },
+        error => {
+          // TODO: reject(error);
+          console.log(error);
+
+          resolve(data);
+        }
+      );
     });
   };
 
@@ -45,10 +56,21 @@ const Container = (props) => {
 
     const movieId = oldData.movieId;
 
+    // return api.scoreMovie(contactId, movieId, data);
     return new Promise((resolve, reject) => {
       const data = { scoreByUser };
 
-      return api.scoreMovie(contactId, movieId, data);
+      api.scoreMovie(contactId, movieId, data).then(
+        apiData => {
+          resolve(apiData);
+        },
+        error => {
+          // TODO: reject(error);
+          console.log(error);
+
+          resolve(mapRowToEditData(oldData));
+        }
+      );
     });
   };
 

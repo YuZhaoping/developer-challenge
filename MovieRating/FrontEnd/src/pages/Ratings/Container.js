@@ -32,7 +32,21 @@ const Container = (props) => {
 
   const onRowAdd = newData => {
     const data = mapRowToEditData(newData);
-    return api.creatRating(data);
+
+    // return api.creatRating(data);
+    return new Promise((resolve, reject) => {
+      api.creatRating(data).then(
+        apiData => {
+          resolve(apiData);
+        },
+        error => {
+          // TODO: reject(error);
+          console.log(error);
+
+          resolve(data);
+        }
+      );
+    });
   };
 
 
