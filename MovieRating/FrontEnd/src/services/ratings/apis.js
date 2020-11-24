@@ -20,21 +20,25 @@ export const creatRating = (data) => {
 };
 
 
+const moviesBaseUrl = (contactId) => (`${baseUrl}/${contactId}/movies`);
+
+
 export const getMoviesOfRating = (contactId) => {
-  const url = `${baseUrl}/${contactId}/movies`;
+  const url = moviesBaseUrl(contactId);
 
   return doGet(url);
 };
 
 export const addMovieForRating = (contactId, data) => {
-  const url = `${baseUrl}/${contactId}/movies`;
+  const url = moviesBaseUrl(contactId);;
 
   return doCreate(url, data);
 };
 
 
 export const scoreMovie = (contactId, movieId, data) => {
-  const url = `${baseUrl}/${contactId}/movies/${movieId}`;
+  const moviesUrl = moviesBaseUrl(contactId);
+  const url = `${moviesUrl}/${movieId}`;
 
   return doUpdate(url, data, true);
 };
