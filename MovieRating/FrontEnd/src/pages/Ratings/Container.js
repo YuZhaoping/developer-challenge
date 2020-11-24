@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-import api from '../../services/ratings/api';
+import ratingsAPIs from '../../services/ratings/apis';
 
 import Table from './Table';
 
@@ -16,7 +16,7 @@ const Container = (props) => {
 
   const queryRowsData = query => {
     return new Promise((resolve, reject) => {
-      api.getAllRatings().then(
+      ratingsAPIs.getAllRatings().then(
         apiData => {
           resolve({data: apiData});
         },
@@ -33,9 +33,9 @@ const Container = (props) => {
   const onRowAdd = newData => {
     const data = mapRowToEditData(newData);
 
-    // return api.creatRating(data);
+    // return ratingsAPIs.creatRating(data);
     return new Promise((resolve, reject) => {
-      api.creatRating(data).then(
+      ratingsAPIs.creatRating(data).then(
         apiData => {
           resolve(apiData);
         },

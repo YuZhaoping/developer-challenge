@@ -40,7 +40,7 @@ export const scoreMovie = (contactId, movieId, data) => {
 };
 
 
-const api = {
+const ratingsAPIs = {
   getAllRatings,
   creatRating,
   getMoviesOfRating,
@@ -49,4 +49,4 @@ const api = {
 };
 
 
-export default api;
+export default ratingsAPIs;
