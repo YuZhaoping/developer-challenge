@@ -27,7 +27,8 @@ const TableWrapper = (props) => {
         onRowUpdate: onRowUpdate
       }}
       options={{
-        paging: false,
+        actionsColumnIndex: -1,
+        paging: false
       }}
     />
   );
