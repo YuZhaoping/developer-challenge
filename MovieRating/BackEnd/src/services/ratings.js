@@ -58,12 +58,10 @@ const addMovieForRating = async (contactId, movieDTO) => {
 };
 
 
-const scoreMovie = async (contactId, movieId, movieDTO) => {
+const scoreMovie = async (contactId, movieId, scoreByUser) => {
   let movie = await ratingsDataStore.findRatingMovieByIds(contactId, movieId);
 
   if (movie) {
-    const scoreByUser = movieDTO.scoreByUser;
-
     movie = movieModel.scoreMovie(movie, scoreByUser);
 
     await ratingsDataStore.updateRatingMovie(contactId, movie);

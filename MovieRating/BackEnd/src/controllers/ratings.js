@@ -62,8 +62,9 @@ export const scoreMovie = async (req, res, next) => {
     const movieId = req.params.movieId;
 
     const movieDTO = req.body;
+    const scoreByUser = parseInt(movieDTO.scoreByUser);
 
-    const data = await ratingService.scoreMovie(contactId, movieId, movieDTO);
+    const data = await ratingService.scoreMovie(contactId, movieId, scoreByUser);
 
     res.json({ apiVersion, data });
   } catch (e) {
