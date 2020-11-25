@@ -1,13 +1,13 @@
 
 export const defaultEditData = {
-  contactId: '',
+  ratingId: '',
   category: ''
 };
 
 export const mapRowToEditData = rowData => ((({
-  contactId,
+  ratingId,
   category
 }) => ({
-  contactId,
+  ratingId,
   category
 }))(rowData));

@@ -36,7 +36,7 @@ const title = 'Rating Movies';
 const Layout = (props) => {
   const { match } = props;
 
-  const contactId = match.params.contactId;
+  const ratingId = match.params.ratingId;
 
   const classes = useStyles();
 
@@ -46,14 +46,14 @@ const Layout = (props) => {
 
       <div className={ classes.title } >
         <Typography variant='h6' >
-          { `Contant: '${contactId}' movies:` }
+          { `Rate the '${ratingId}' movies:` }
         </Typography>
       </div>
 
       <div className={ classes.content } >
         <Container
           title={ title }
-          contactId={ contactId }
+          ratingId={ ratingId }
         />
       </div>
 

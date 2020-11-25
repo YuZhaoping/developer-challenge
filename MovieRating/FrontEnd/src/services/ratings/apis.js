@@ -20,24 +20,24 @@ export const creatRating = (data) => {
 };
 
 
-const moviesBaseUrl = (contactId) => (`${baseUrl}/${contactId}/movies`);
+const moviesBaseUrl = (ratingId) => (`${baseUrl}/${ratingId}/movies`);
 
 
-export const getMoviesOfRating = (contactId) => {
-  const url = moviesBaseUrl(contactId);
+export const getMoviesOfRating = (ratingId) => {
+  const url = moviesBaseUrl(ratingId);
 
   return doGet(url);
 };
 
-export const addMovieForRating = (contactId, data) => {
-  const url = moviesBaseUrl(contactId);;
+export const addMovieForRating = (ratingId, data) => {
+  const url = moviesBaseUrl(ratingId);;
 
   return doCreate(url, data);
 };
 
 
-export const scoreMovie = (contactId, movieId, data) => {
-  const moviesUrl = moviesBaseUrl(contactId);
+export const scoreMovie = (ratingId, movieId, data) => {
+  const moviesUrl = moviesBaseUrl(ratingId);
   const url = `${moviesUrl}/${movieId}`;
 
   return doUpdate(url, data, true);

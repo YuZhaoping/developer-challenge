@@ -8,14 +8,14 @@ import { ratingsBasePath } from '../../routes';
 
 
 const MoviesEntry = ({ rowData }) => {
-  const contactId = rowData ? rowData.contactId: '';
+  const ratingId = rowData ? rowData.ratingId: '';
 
   return (
     <Link
       component={ RouterLink }
-      to={ `${ratingsBasePath}/${contactId}` }
+      to={ `${ratingsBasePath}/${ratingId}` }
     >
-      { contactId }
+      { ratingId }
     </Link>
   );
 };

@@ -31,9 +31,9 @@ export const createRating = async (req, res, next) => {
 
 export const getMoviesOfRating = async (req, res, next) => {
   try {
-    const contactId = req.params.contactId;
+    const ratingId = req.params.ratingId;
 
-    const data = await ratingService.getMoviesOfRating(contactId);
+    const data = await ratingService.getMoviesOfRating(ratingId);
 
     res.json({ apiVersion, data });
   } catch (e) {
@@ -43,11 +43,11 @@ export const getMoviesOfRating = async (req, res, next) => {
 
 export const addMovieForRating = async (req, res, next) => {
   try {
-    const contactId = req.params.contactId;
+    const ratingId = req.params.ratingId;
 
     const movieDTO = req.body;
 
-    const data = await ratingService.addMovieForRating(contactId, movieDTO);
+    const data = await ratingService.addMovieForRating(ratingId, movieDTO);
 
     res.json({ apiVersion, data });
   } catch (e) {
@@ -58,13 +58,13 @@ export const addMovieForRating = async (req, res, next) => {
 
 export const scoreMovie = async (req, res, next) => {
   try {
-    const contactId = req.params.contactId;
+    const ratingId = req.params.ratingId;
     const movieId = req.params.movieId;
 
     const movieDTO = req.body;
     const scoreByUser = parseInt(movieDTO.scoreByUser);
 
-    const data = await ratingService.scoreMovie(contactId, movieId, scoreByUser);
+    const data = await ratingService.scoreMovie(ratingId, movieId, scoreByUser);
 
     res.json({ apiVersion, data });
   } catch (e) {

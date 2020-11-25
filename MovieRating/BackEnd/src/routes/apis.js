@@ -15,12 +15,12 @@ router.route('/movie_ratings')
   .post(createRating);
 
 
-router.route('/movie_ratings/:contactId/movies')
+router.route('/movie_ratings/:ratingId/movies')
   .get(getMoviesOfRating)
   .post(addMovieForRating);
 
 
-router.route('/movie_ratings/:contactId/movies/:movieId')
+router.route('/movie_ratings/:ratingId/movies/:movieId')
   .patch(scoreMovie);
 
 

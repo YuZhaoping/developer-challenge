@@ -11,12 +11,12 @@ import {
 
 
 const Container = (props) => {
-  const { title, contactId } = props;
+  const { title, ratingId } = props;
 
 
   const queryRowsData = query => {
     return new Promise((resolve, reject) => {
-      ratingsAPIs.getMoviesOfRating(contactId).then(
+      ratingsAPIs.getMoviesOfRating(ratingId).then(
         apiData => {
           resolve({data: apiData});
         },
@@ -33,9 +33,9 @@ const Container = (props) => {
   const onRowAdd = newData => {
     const data = mapRowToEditData(newData);
 
-    // return ratingsAPIs.addMovieForRating(contactId, data);
+    // return ratingsAPIs.addMovieForRating(ratingId, data);
     return new Promise((resolve, reject) => {
-      ratingsAPIs.addMovieForRating(contactId, data).then(
+      ratingsAPIs.addMovieForRating(ratingId, data).then(
         apiData => {
           resolve(apiData);
         },
@@ -56,11 +56,11 @@ const Container = (props) => {
 
     const movieId = oldData.movieId;
 
-    // return ratingsAPIs.scoreMovie(contactId, movieId, data);
+    // return ratingsAPIs.scoreMovie(ratingId, movieId, data);
     return new Promise((resolve, reject) => {
       const data = { scoreByUser };
 
-      ratingsAPIs.scoreMovie(contactId, movieId, data).then(
+      ratingsAPIs.scoreMovie(ratingId, movieId, data).then(
         apiData => {
           resolve(apiData);
         },

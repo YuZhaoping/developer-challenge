@@ -29,10 +29,10 @@ function createIdByName(name) {
 
 
 const createRating = async (ratingDTO) => {
-  const contactId = createIdByName(ratingDTO.category);
+  const ratingId = createIdByName(ratingDTO.category);
 
   const rating = {
-    contactId,
+    ratingId,
     ...ratingDTO
   };
 
@@ -42,29 +42,29 @@ const createRating = async (ratingDTO) => {
 };
 
 
-const getMoviesOfRating = async (contactId) => {
-  return await ratingsDataStore.findMoviesByContactId(contactId);
+const getMoviesOfRating = async (ratingId) => {
+  return await ratingsDataStore.findMoviesByRatingId(ratingId);
 };
 
 
-const addMovieForRating = async (contactId, movieDTO) => {
+const addMovieForRating = async (ratingId, movieDTO) => {
   const movieId = createIdByName(movieDTO.title);
 
   const movie = movieModel.newMovie(movieId, movieDTO);
 
-  await ratingsDataStore.addMovieForRating(contactId, movie);
+  await ratingsDataStore.addMovieForRating(ratingId, movie);
 
   return movie;
 };
 
 
-const scoreMovie = async (contactId, movieId, scoreByUser) => {
-  let movie = await ratingsDataStore.findRatingMovieByIds(contactId, movieId);
+const scoreMovie = async (ratingId, movieId, scoreByUser) => {
+  let movie = await ratingsDataStore.findRatingMovieByIds(ratingId, movieId);
 
   if (movie) {
     movie = movieModel.scoreMovie(movie, scoreByUser);
 
-    await ratingsDataStore.updateRatingMovie(contactId, movie);
+    await ratingsDataStore.updateRatingMovie(ratingId, movie);
 
     return movie;
   } else {

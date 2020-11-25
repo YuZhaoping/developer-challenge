@@ -25,7 +25,7 @@ NOTE: each of the APIs will return the unique error response format if some erro
   "apiVersion": "v1",
   "data": [
     {
-      "contactId": "<Use the contact deployed address as it's id>",
+      "ratingId": "<The generated unique rating id>",
       "category": "<The category of movies for rating>"
     },
     ...
@@ -46,13 +46,13 @@ NOTE: each of the APIs will return the unique error response format if some erro
 {
   "apiVersion": "v1",
   "data": {
-    "contactId": "<Use the contact deployed address as it's id>",
+    "ratingId": "<The generated unique rating id>",
     "category": "<The category of movies for rating>"
   }
 }
 ```
 
-### `GET /api/v1/movie_ratings/:contactId/movies`
+### `GET /api/v1/movie_ratings/:ratingId/movies`
   Get the specified rating contact movies.
 * Response body:
 ```
@@ -74,7 +74,7 @@ NOTE: each of the APIs will return the unique error response format if some erro
 }
 ```
 
-### `POST /api/v1/movie_ratings/:contactId/movies`
+### `POST /api/v1/movie_ratings/:ratingId/movies`
   Create a movie about the rating contact.
 * Request body:
 ```
@@ -102,7 +102,7 @@ NOTE: each of the APIs will return the unique error response format if some erro
 }
 ```
 
-### `PATCH /api/v1/movie_ratings/:contactId/movies/:movieId`
+### `PATCH /api/v1/movie_ratings/:ratingId/movies/:movieId`
   Rate the movie about the rating contact.
 * Request body:
 ```

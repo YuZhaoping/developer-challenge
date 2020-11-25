@@ -9,7 +9,7 @@ export const ratingsBasePath = '/app/ratings';
 
 const routes = [
   {
-    path: `${ratingsBasePath}/:contactId`,
+    path: `${ratingsBasePath}/:ratingId`,
     component: RatingMoviesPage
   },
   {
