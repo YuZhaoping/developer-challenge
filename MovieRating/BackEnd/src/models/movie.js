@@ -3,7 +3,7 @@ const newMovie = (movieId, dto) => {
   return {
     movieId,
     totalScore: 0,
-    numOfRatedUsers: 0,
+    ratedUserCount: 0,
     scoreByUser: -1,
     ...dto
   };
@@ -13,15 +13,15 @@ const newMovie = (movieId, dto) => {
 const scoreMovie = (movie, scoreByUser) => {
   if (scoreByUser >= 0) {
     let totalScore = movie.totalScore;
-    let numOfRatedUsers = movie.numOfRatedUsers;
+    let ratedUserCount = movie.ratedUserCount;
 
     totalScore += scoreByUser;
-    ++numOfRatedUsers;
+    ++ratedUserCount;
 
     return {
       ...movie,
       totalScore,
-      numOfRatedUsers,
+      ratedUserCount,
       scoreByUser
     };
   } else {

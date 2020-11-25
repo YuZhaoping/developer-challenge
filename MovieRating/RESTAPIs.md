@@ -66,7 +66,7 @@ NOTE: each of the APIs will return the unique error response format if some erro
       "majorStaffs": "<The major staffs of the movie, optional>",
       "briefIntro": "<The brief introduction of the movie, optional>",
       "totalScore": "<The total score rated by users>",
-      "numOfRatedUsers": "<The number of rated users>",
+      "ratedUserCount": "<The number of rated users>",
       "scoreByUser": "<The score that the current user rated, undefined if the current user has not rated for the movie>"
     },
     ...
@@ -96,7 +96,7 @@ NOTE: each of the APIs will return the unique error response format if some erro
     "majorStaffs": "<The major staffs of the movie, optional>",
     "briefIntro": "<The brief introduction of the movie, optional>",
     "totalScore": "<The total score rated by users>",
-    "numOfRatedUsers": "<The number of rated users>",
+    "ratedUserCount": "<The number of rated users>",
     "scoreByUser": "<The score that the current user rated, undefined if the current user has not rated for the movie>"
   }
 }
@@ -121,7 +121,7 @@ NOTE: each of the APIs will return the unique error response format if some erro
     "majorStaffs": "<The major staffs of the movie, optional>",
     "briefIntro": "<The brief introduction of the movie, optional>",
     "totalScore": "<The total score rated by users>",
-    "numOfRatedUsers": "<The number of rated users>",
+    "ratedUserCount": "<The number of rated users>",
     "scoreByUser": "<The score that the current user rated, undefined if the current user has not rated for the movie>"
   }
 }

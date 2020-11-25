@@ -4,6 +4,6 @@ export const ratingMoviesColumns = [
   { title: 'Major Staffs', field: 'majorStaffs', editable: 'onAdd', sorting: false },
   { title: 'Brief Intro', field: 'briefIntro', editable: 'onAdd', sorting: false },
   { title: 'Total Score', field: 'totalScore', editable: 'never', type: 'numeric' },
-  { title: 'Rated Users', field: 'numOfRatedUsers', editable: 'never', type: 'numeric' },
+  { title: 'Rated User Count', field: 'ratedUserCount', editable: 'never', type: 'numeric' },
   { title: 'Your Score', field: 'scoreByUser', editable: 'onUpdate', type: 'numeric' }
 ];

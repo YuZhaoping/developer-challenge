@@ -6,7 +6,7 @@ export const defaultEditData = {
   majorStaffs: '',
   briefIntro: '',
   totalScore: 0,
-  numOfRatedUsers: 0,
+  ratedUserCount: 0,
   scoreByUser: -1
 };
 
@@ -17,7 +17,7 @@ export const mapRowToEditData = rowData => ((({
   majorStaffs,
   briefIntro,
   totalScore,
-  numOfRatedUsers,
+  ratedUserCount,
   scoreByUser
 }) => ({
   movieId,
@@ -26,6 +26,6 @@ export const mapRowToEditData = rowData => ((({
   majorStaffs,
   briefIntro,
   totalScore,
-  numOfRatedUsers,
+  ratedUserCount,
   scoreByUser
 }))(rowData));
