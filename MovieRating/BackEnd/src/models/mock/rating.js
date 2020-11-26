@@ -33,10 +33,16 @@ const createRating = async (ratingDTO) => {
 }
 
 
+const getMoviesOfRating = async (ratingId) => {
+  return await dataStore.findMoviesByRatingId(ratingId);
+};
+
+
 const ratingModel = {
   init,
   findAllRatings,
-  createRating
+  createRating,
+  getMoviesOfRating
 };
 
 

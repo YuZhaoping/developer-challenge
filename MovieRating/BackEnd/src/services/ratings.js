@@ -35,7 +35,7 @@ const createRating = async (ratingDTO) => {
 
 
 const getMoviesOfRating = async (ratingId) => {
-  return await ratingsDataStore.findMoviesByRatingId(ratingId);
+  return await ratingModel.getMoviesOfRating(ratingId);
 };
 
 
