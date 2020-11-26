@@ -2,7 +2,7 @@
  * The services' supplier
  */
 
-import modelSupplier from '../models/supplier';
+import modelSupplier from '../models/mock/supplier';
 
 import ratingService from './ratings';
 

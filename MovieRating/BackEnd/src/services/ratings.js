@@ -1,6 +1,6 @@
 /* The movie ratings' service */
 
-import modelSupplier from '../models/supplier';
+import modelSupplier from '../models/mock/supplier';
 
 import memoryDataStore from '../repositories/memory-store';
 
