@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+  mongodb:
+    container_name: mongodb
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_DB_ROOT_USERNAME:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_DB_ROOT_PASSWORD:-admin123}
+      MONGO_DB_NAME: ${MONGO_DB_NAME:-testdb}
+      MONGO_DB_USERNAME: ${MONGO_DB_USERNAME:-test}
+      MONGO_DB_PASSWORD: ${MONGO_DB_PASSWORD:-test123}
+    volumes:
+      - mongo-db:/data/db
+      - mongo-configdb:/data/configdb
+      - ./mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh:ro
+      - ./_home:/home/mongodb
+
+volumes:
+  mongo-db:
+    driver: local
+    name: mongo-db
+  mongo-configdb:
+    driver: local
+    name: mongo-configdb
+
+###
+# To start: docker-compose up --build -d mongodb
+# To stop:  docker-compose down -v mongodb
+#
+# Url: mongodb://test:test123@localhost:27017/testdb
+#
+###
