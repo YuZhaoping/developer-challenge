@@ -1,12 +1,17 @@
 
-import ratingsDataStore from '../repositories/memory-store';
+import memoryStore from '../repositories/memory-store';
 
 
 const init = async ({ config, expressApp }) => {
-  await ratingsDataStore.init({ config });
+  const dataStore = memoryStore;
+
+  await dataStore.init({ dataStore, config });
+
+  const ratingsModelSupplier = dataStore.getModelSupplier();
 
   const providers = {
-    ratingsDataStore
+    ratingsDataStore: dataStore,
+    ratingsModelSupplier
   };
 
   return providers;

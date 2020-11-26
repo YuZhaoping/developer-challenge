@@ -1,4 +1,11 @@
 
+let dataStore;
+
+const init = async (props) => {
+  dataStore = props.dataStore;
+}
+
+
 const newMovie = (movieId, dto) => {
   return {
     movieId,
@@ -31,6 +38,7 @@ const scoreMovie = (movie, scoreByUser) => {
 
 
 const movieModel = {
+  init,
   newMovie,
   scoreMovie
 };

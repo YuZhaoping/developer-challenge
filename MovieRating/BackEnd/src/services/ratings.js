@@ -1,17 +1,16 @@
 /* The movie ratings' service */
 
-import modelSupplier from '../models/mock/supplier';
+let ratingsDataStore;
 
-import memoryDataStore from '../repositories/memory-store';
-
-var ratingsDataStore = memoryDataStore;
-
-
-const movieModel = modelSupplier.movieModel;
+let movieModel;
 
 
 const init = async ({ providers }) => {
   ratingsDataStore = providers.ratingsDataStore;
+
+  const modelSupplier = providers.ratingsModelSupplier;
+
+  movieModel = modelSupplier.movieModel;
 };
 
 

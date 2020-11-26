@@ -1,11 +1,18 @@
 
+import modelSupplier from '../models/mock/supplier';
+
+
 const ratings = [];
 
 const ratingsMovies = new Map();
 
 
-const init = async () => {
-  // Nothing to do.
+const init = async (props) => {
+  await modelSupplier.initModels(props);
+};
+
+const getModelSupplier = () => {
+  return modelSupplier;
 };
 
 
@@ -65,6 +72,7 @@ const updateRatingMovie = async (ratingId, movie) => {
 
 const dataStore = {
   init,
+  getModelSupplier,
   findAllRatings,
   saveRating,
   findMoviesByRatingId,

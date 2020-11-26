@@ -6,6 +6,7 @@ import movieModel from './movie';
 
 
 const initModels = async (props) => {
+  await movieModel.init(props);
 };
 
 
