@@ -2,6 +2,7 @@
 
 let ratingsDataStore;
 
+let ratingModel;
 let movieModel;
 
 
@@ -10,12 +11,13 @@ const init = async ({ providers }) => {
 
   const modelSupplier = providers.ratingsModelSupplier;
 
+  ratingModel = modelSupplier.ratingModel;
   movieModel = modelSupplier.movieModel;
 };
 
 
 const getAllRatings = async () => {
-  return await ratingsDataStore.findAllRatings();
+  return await ratingModel.findAllRatings();
 };
 
 
@@ -28,16 +30,7 @@ function createIdByName(name) {
 
 
 const createRating = async (ratingDTO) => {
-  const ratingId = createIdByName(ratingDTO.category);
-
-  const rating = {
-    ratingId,
-    ...ratingDTO
-  };
-
-  await ratingsDataStore.saveRating(rating);
-
-  return rating;
+  return await ratingModel.createRating(ratingDTO);
 };
 
 
