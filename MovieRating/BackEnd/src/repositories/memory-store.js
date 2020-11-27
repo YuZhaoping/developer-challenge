@@ -20,7 +20,7 @@ const findAllRatings = async () => {
   return ratings;
 };
 
-const saveRating = async (rating) => {
+const createRating = async (rating) => {
   if (ratings.findIndex(element => (element.ratingId === rating.ratingId)) < 0) {
     ratings.push(rating);
   }
@@ -74,7 +74,7 @@ const dataStore = {
   init,
   getModelSupplier,
   findAllRatings,
-  saveRating,
+  createRating,
   findMoviesByRatingId,
   addMovieForRating,
   findRatingMovieByIds,

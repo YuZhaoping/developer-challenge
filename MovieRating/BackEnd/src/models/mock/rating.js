@@ -27,7 +27,7 @@ const createRating = async (ratingDTO) => {
     ...ratingDTO
   };
 
-  await dataStore.saveRating(rating);
+  await dataStore.createRating(rating);
 
   return rating;
 }
