@@ -12,7 +12,7 @@ const init = async ({ providers }) => {
 };
 
 
-const getAllRatings = async () => (await ratingModel.findAllRatings());
+const getAllRatings = async () => (await ratingModel.getAllRatings());
 
 const createRating = async (ratingDTO) => (await ratingModel.createRating(ratingDTO));
 

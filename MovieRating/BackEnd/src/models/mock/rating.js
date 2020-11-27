@@ -6,7 +6,7 @@ const init = async (props) => {
 }
 
 
-const findAllRatings = async () => {
+const getAllRatings = async () => {
   return await dataStore.findAllRatings();
 };
 
@@ -40,7 +40,7 @@ const getMoviesOfRating = async (ratingId) => {
 
 const ratingModel = {
   init,
-  findAllRatings,
+  getAllRatings,
   createRating,
   getMoviesOfRating
 };
