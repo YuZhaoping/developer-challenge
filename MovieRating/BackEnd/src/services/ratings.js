@@ -24,7 +24,7 @@ const addMovieForRating = async (ratingId, movieDTO) => (
   await movieModel.addMovieForRating(ratingId, movieDTO)
 );
 
-const scoreMovie = async (ratingId, movieId, scoreByUser) => {
+const rateMovie = async (ratingId, movieId, scoreByUser) => {
   const movie = await movieModel.getMovieOfRating(ratingId, movieId);
   return movie ? await movieModel.rateMovie(ratingId, movie, scoreByUser) : {};
 };
@@ -36,7 +36,7 @@ const ratingService = {
   createRating,
   getMoviesOfRating,
   addMovieForRating,
-  scoreMovie
+  rateMovie
 };
 
 

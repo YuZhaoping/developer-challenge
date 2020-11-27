@@ -6,7 +6,7 @@ import {
   createRating,
   getMoviesOfRating,
   addMovieForRating,
-  scoreMovie
+  rateMovie
 } from '../controllers/ratings';
 
 
@@ -21,7 +21,7 @@ router.route('/movie_ratings/:ratingId/movies')
 
 
 router.route('/movie_ratings/:ratingId/movies/:movieId')
-  .patch(scoreMovie);
+  .patch(rateMovie);
 
 
 router.all('/',

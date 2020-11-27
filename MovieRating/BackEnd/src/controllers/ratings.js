@@ -56,7 +56,7 @@ export const addMovieForRating = async (req, res, next) => {
 };
 
 
-export const scoreMovie = async (req, res, next) => {
+export const rateMovie = async (req, res, next) => {
   try {
     const ratingId = req.params.ratingId;
     const movieId = req.params.movieId;
@@ -64,7 +64,7 @@ export const scoreMovie = async (req, res, next) => {
     const movieDTO = req.body;
     const scoreByUser = parseInt(movieDTO.scoreByUser);
 
-    const data = await ratingService.scoreMovie(ratingId, movieId, scoreByUser);
+    const data = await ratingService.rateMovie(ratingId, movieId, scoreByUser);
 
     res.json({ apiVersion, data });
   } catch (e) {

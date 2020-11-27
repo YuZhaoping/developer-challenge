@@ -56,11 +56,11 @@ const Container = (props) => {
 
     const movieId = oldData.movieId;
 
-    // return ratingsAPIs.scoreMovie(ratingId, movieId, data);
+    // return ratingsAPIs.rateMovie(ratingId, movieId, data);
     return new Promise((resolve, reject) => {
       const data = { scoreByUser };
 
-      ratingsAPIs.scoreMovie(ratingId, movieId, data).then(
+      ratingsAPIs.rateMovie(ratingId, movieId, data).then(
         apiData => {
           resolve(apiData);
         },

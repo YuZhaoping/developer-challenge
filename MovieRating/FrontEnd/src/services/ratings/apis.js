@@ -36,7 +36,7 @@ export const addMovieForRating = (ratingId, data) => {
 };
 
 
-export const scoreMovie = (ratingId, movieId, data) => {
+export const rateMovie = (ratingId, movieId, data) => {
   const moviesUrl = moviesBaseUrl(ratingId);
   const url = `${moviesUrl}/${movieId}`;
 
@@ -49,7 +49,7 @@ const ratingsAPIs = {
   creatRating,
   getMoviesOfRating,
   addMovieForRating,
-  scoreMovie
+  rateMovie
 };
 
 
