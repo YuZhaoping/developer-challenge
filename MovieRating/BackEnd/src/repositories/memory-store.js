@@ -7,8 +7,8 @@ const ratings = [];
 const ratingsMovies = new Map();
 
 
-const init = async (props) => {
-  await modelSupplier.initModels(props);
+const init = async ({ self, config }) => {
+  await modelSupplier.initModels({ dataStore: self, config });
 };
 
 const getModelSupplier = () => {
