@@ -1,11 +1,12 @@
 
-import memoryStore from '../repositories/memory-store';
+import ethereumLoader from '../ethereum/loader';
+import dataStoreLoader from '../repositories/loader';
 
 
 const init = async ({ config, expressApp }) => {
-  const dataStore = memoryStore;
+  const ethereumAgent = await ethereumLoader.init({ config });
 
-  await dataStore.init({ dataStore, config });
+  const dataStore = await dataStoreLoader.init({ config, ethereumAgent });
 
   const ratingsModelSupplier = dataStore.getModelSupplier();
 

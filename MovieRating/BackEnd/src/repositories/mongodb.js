@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+import modelSupplier from '../models/ethereum/supplier';
+
 
 const RatingSchema = () => (new mongoose.Schema({
   category: String,
@@ -45,6 +47,16 @@ const init = async ({ self, config, ethereumAgent }) => {
     await MovieModel.deleteMany({});
   }
 
+  await modelSupplier.initModels({
+    dataStore: self,
+    config,
+    ethereumAgent
+  });
+};
+
+
+const getModelSupplier = () => {
+  return modelSupplier;
 };
 
 
@@ -141,6 +153,7 @@ const updateRatingMovie = async (movieId, updates) => {
 
 const dataStore = {
   init,
+  getModelSupplier,
   findAllRatings,
   createRating,
   updateRating,

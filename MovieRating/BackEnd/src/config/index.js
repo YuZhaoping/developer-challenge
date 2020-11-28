@@ -9,5 +9,8 @@ export default {
   mongodb: {
     url: process.env.MONGODB_URL || 'mongodb://test:test123@localhost:27017/testdb',
     cleanOnStart: true
+  },
+  mockdb: {
+    enabled: process.env.ENABLE_MOCK_DB || false
   }
 };
