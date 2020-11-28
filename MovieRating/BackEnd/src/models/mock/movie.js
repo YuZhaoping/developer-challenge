@@ -3,7 +3,7 @@ let dataStore;
 
 const init = async (props) => {
   dataStore = props.dataStore;
-}
+};
 
 
 const crypto = require('crypto');
@@ -14,7 +14,7 @@ function generateMovieId(title) {
 }
 
 
-const newMovie = (movieId, dto) => {
+function newMovie(movieId, dto) {
   return {
     movieId,
     totalScore: 0,
@@ -22,7 +22,7 @@ const newMovie = (movieId, dto) => {
     scoreByUser: -1,
     ...dto
   };
-};
+}
 
 const addMovieForRating = async (ratingId, movieDTO) => {
   const movieId = generateMovieId(movieDTO.title);
@@ -37,10 +37,10 @@ const addMovieForRating = async (ratingId, movieDTO) => {
 
 const getMovieOfRating = async (ratingId, movieId) => {
   return await dataStore.findRatingMovieByIds(ratingId, movieId);
-}
+};
 
 
-const accumulateMovieScore = (movie, scoreByUser) => {
+function accumulateMovieScore(movie, scoreByUser) {
   if (scoreByUser >= 0) {
     let totalScore = movie.totalScore;
     let ratedUserCount = movie.ratedUserCount;
@@ -65,7 +65,7 @@ const rateMovie = async (ratingId, movie, scoreByUser) => {
   await dataStore.updateRatingMovie(ratingId, movie);
 
   return movie;
-}
+};
 
 
 const movieModel = {
