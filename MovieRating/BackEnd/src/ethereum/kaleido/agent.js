@@ -146,7 +146,13 @@ const addRatingMovie = async (contractAddress, { movieId }) => {
     // TODO
     console.log(res);
 
-    return { movieIndex: res.body.movieIndex };
+    // TODO return { movieIndex: res.body.movieIndex };
+    let { moviesCount } = await getRatingMoviesCount(contractAddress);
+    if (!isNaN(moviesCount)) {
+      moviesCount = parseInt(moviesCount);
+      return { movieIndex: moviesCount-1 };
+    }
+
   } catch (err) {
     // TODO
     console.log(err);
@@ -154,6 +160,7 @@ const addRatingMovie = async (contractAddress, { movieId }) => {
 };
 
 const getRatingMoviesCount = async (contractAddress) => {
+  console.log(`getRatingMoviesCount(\'${contractAddress}\')`);
   try {
     const res = await swaggerClient.apis.default.getMoviesCount_get({
       address: contractAddress,
@@ -187,7 +194,6 @@ const getRatingMovie = async (contractAddress, movieIndex) => {
     console.log(res);
 
     return {
-      movieId: res.body.movieId,
       totalScore: res.body.totalScore,
       ratedUserCount: res.body.ratedUserCount
     };
@@ -213,10 +219,13 @@ const rateMovie = async (contractAddress, movieIndex, score) => {
     // TODO
     console.log(res);
 
+    /* TODO
     return {
       totalScore: res.body.totalScore,
       ratedUserCount: res.body.ratedUserCount
-    };
+    };*/
+    return await getRatingMovie(contractAddress, movieIndex);
+
   } catch (err) {
     // TODO
     console.log(err);

@@ -28,7 +28,7 @@ contract MoviesRating {
       "Only initiator can add movie for rating."
     ); */
 
-    movieIndex = movies.length;
+    uint movieIndex_ = movies.length;
 
     movies.push(Movie({
       movieId: movieId_,
@@ -36,7 +36,7 @@ contract MoviesRating {
       ratedUserCount: 0
     }));
 
-    return movieIndex;
+    return movieIndex_;
   }
 
 
@@ -49,11 +49,11 @@ contract MoviesRating {
   function getMovie(uint movieIndex) public view returns (bytes12 movieId, uint totalScore, uint ratedUserCount) {
     require(validMovieIndex(movieIndex), "Movie index out of bounds.");
 
-    movieId = movies[movieIndex].movieId;
-    totalScore = movies[movieIndex].totalScore;
-    ratedUserCount = movies[movieIndex].ratedUserCount;
+    bytes12 movieId_ = movies[movieIndex].movieId;
+    uint totalScore_ = movies[movieIndex].totalScore;
+    uint ratedUserCount_ = movies[movieIndex].ratedUserCount;
 
-    return (movieId, totalScore, ratedUserCount);
+    return (movieId_, totalScore_, ratedUserCount_);
   }
 
 
@@ -68,10 +68,10 @@ contract MoviesRating {
     movies[movieIndex].totalScore += score;
     movies[movieIndex].ratedUserCount += 1;
 
-    totalScore = movies[movieIndex].totalScore;
-    ratedUserCount = movies[movieIndex].ratedUserCount;
+    uint totalScore_ = movies[movieIndex].totalScore;
+    uint ratedUserCount_ = movies[movieIndex].ratedUserCount;
 
-    return (totalScore, ratedUserCount);
+    return (totalScore_, ratedUserCount_);
   }
 
   function validMovieIndex(uint movieIndex) public view returns (bool) {
