@@ -3,7 +3,7 @@ pragma solidity >=0.4.24 <0.6.0;
 contract MoviesRating {
 
   struct Movie {
-    bytes32 movieId;
+    bytes12 movieId;
     uint totalScore;
     uint ratedUserCount;
   }
@@ -13,41 +13,47 @@ contract MoviesRating {
 
   address public initiator;
 
-  bytes32 public ratingId;
+  bytes12 public ratingId;
 
 
-  constructor(bytes32 ratingId_) public {
+  constructor(bytes12 ratingId_) public {
     initiator = msg.sender;
     ratingId = ratingId_;
   }
 
 
-  function addMovie(bytes32 movieId) public returns (uint movieIndex) {
-    require(
+  function addMovie(bytes12 movieId_) public returns (uint movieIndex) {
+    /* require(
       msg.sender == initiator,
       "Only initiator can add movie for rating."
-    );
+    ); */
 
     movieIndex = movies.length;
 
     movies.push(Movie({
-      movieId: movieId,
+      movieId: movieId_,
       totalScore: 0,
       ratedUserCount: 0
     }));
+
+    return movieIndex;
   }
 
 
   function getMoviesCount() public view returns (uint count) {
     count = movies.length;
+
+    return count;
   }
 
-  function getMovie(uint movieIndex) public view returns (bytes32 movieId, uint totalScore, uint ratedUserCount) {
+  function getMovie(uint movieIndex) public view returns (bytes12 movieId, uint totalScore, uint ratedUserCount) {
     require(validMovieIndex(movieIndex), "Movie index out of bounds.");
 
     movieId = movies[movieIndex].movieId;
     totalScore = movies[movieIndex].totalScore;
     ratedUserCount = movies[movieIndex].ratedUserCount;
+
+    return (movieId, totalScore, ratedUserCount);
   }
 
 
@@ -64,6 +70,8 @@ contract MoviesRating {
 
     totalScore = movies[movieIndex].totalScore;
     ratedUserCount = movies[movieIndex].ratedUserCount;
+
+    return (totalScore, ratedUserCount);
   }
 
   function validMovieIndex(uint movieIndex) public view returns (bool) {

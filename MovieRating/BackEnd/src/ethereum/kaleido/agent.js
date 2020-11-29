@@ -65,6 +65,8 @@ function checkStatus(res) {
   if (res.ok) { // res.status >= 200 && res.status < 300
     return res;
   } else {
+    // TODO
+    console.log(res);
     throw new Error(res.statusText);
   }
 }
@@ -86,15 +88,15 @@ const requestCompileContacts = async () => {
     }
   };
 
-  throw new Error('Uncompleted');
-/*
-  return fetch(requestUrl.href, href, options).then(checkStatus)
+  return fetch(requestUrl.href, options).then(checkStatus)
     .then(res => res.json());
-*/
 };
 
 const init = async () => {
   const res = await requestCompileContacts();
+
+  // TODO
+  console.log(res);
 
   // Acquire the OpenAPI for Swagger
   const openAPI = res.openapi;
@@ -113,32 +115,41 @@ const createRatingContract = async ({ ratingId }) => {
     const res = await swaggerClient.apis.default.constructor_post({
       body: {
         // Here we set the constructor parameters
-        ratingId
+        ratingId_: ratingId
       },
       "kld-from": config.FROM_ADDRESS,
       "kld-sync": "true"
     });
+
+    // TODO
+    console.log(res);
 
     return { contractAddress: res.body.contractAddress };
   } catch (err) {
     // TODO
+    console.log(err);
   }
 };
 
 const addRatingMovie = async (contractAddress, { movieId }) => {
+  console.log(`addRatingMovie(\'${contractAddress}\', \'${movieId}\')`);
   try {
     const res = await swaggerClient.apis.default.addMovie_post({
       address: contractAddress,
       body: {
-        movieId
+        movieId_: movieId
       },
       "kld-from": config.FROM_ADDRESS,
       "kld-sync": "true"
     });
 
+    // TODO
+    console.log(res);
+
     return { movieIndex: res.body.movieIndex };
   } catch (err) {
     // TODO
+    console.log(err);
   }
 };
 
@@ -150,13 +161,18 @@ const getRatingMoviesCount = async (contractAddress) => {
       "kld-sync": "true"
     });
 
+    // TODO
+    console.log(res);
+
     return { moviesCount: res.body.count };
   } catch (err) {
     // TODO
+    console.log(err);
   }
 };
 
 const getRatingMovie = async (contractAddress, movieIndex) => {
+  console.log(`getRatingMovie(\'${contractAddress}\', ${movieIndex})`);
   try {
     const res = await swaggerClient.apis.default.getMovie_post({
       address: contractAddress,
@@ -167,6 +183,9 @@ const getRatingMovie = async (contractAddress, movieIndex) => {
       "kld-sync": "true"
     });
 
+    // TODO
+    console.log(res);
+
     return {
       movieId: res.body.movieId,
       totalScore: res.body.totalScore,
@@ -174,10 +193,12 @@ const getRatingMovie = async (contractAddress, movieIndex) => {
     };
   } catch (err) {
     // TODO
+    console.log(err);
   }
 };
 
 const rateMovie = async (contractAddress, movieIndex, score) => {
+  console.log(`rateMovie(\'${contractAddress}\', ${movieIndex}, ${score})`);
   try {
     const res = await swaggerClient.apis.default.rateMovie_post({
       address: contractAddress,
@@ -189,12 +210,16 @@ const rateMovie = async (contractAddress, movieIndex, score) => {
       "kld-sync": "true"
     });
 
+    // TODO
+    console.log(res);
+
     return {
       totalScore: res.body.totalScore,
       ratedUserCount: res.body.ratedUserCount
     };
   } catch (err) {
     // TODO
+    console.log(err);
   }
 };
 
