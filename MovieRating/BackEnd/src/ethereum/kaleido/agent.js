@@ -61,6 +61,14 @@ const compileRequestURL = () => {
 };
 
 
+function checkStatus(res) {
+  if (res.ok) { // res.status >= 200 && res.status < 300
+    return res;
+  } else {
+    throw new Error(res.statusText);
+  }
+}
+
 const requestCompileContacts = async () => {
   const requestUrl = compileRequestURL();
 
@@ -74,13 +82,13 @@ const requestCompileContacts = async () => {
     body: form,
     headers: {
       ...formHeaders,
-      'Content-Type': 'application/json'
+      'Accept': 'application/json'
     }
   };
 
   throw new Error('Uncompleted');
 /*
-  return fetch(requestUrl.href, href, options)
+  return fetch(requestUrl.href, href, options).then(checkStatus)
     .then(res => res.json());
 */
 };
