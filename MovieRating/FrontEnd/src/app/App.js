@@ -7,6 +7,8 @@ import AppLayout from './AppLayout';
 
 import { Root } from './appStyles';
 
+import ErrorMessage from '../components/ErrorMessage';
+
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -19,6 +21,8 @@ const App = () => {
       <CssBaseline />
 
       <Root>
+
+        <ErrorMessage />
 
         <Switch>
           <Route path='/app' component={ AppLayout } />
