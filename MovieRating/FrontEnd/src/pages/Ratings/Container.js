@@ -1,5 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
+
+import publishError from '../../actions/errors';
 
 import ratingsAPIs from '../../services/ratings/apis';
 
@@ -11,7 +14,13 @@ import {
 
 
 const Container = (props) => {
-  const { title } = props;
+  const { title, publishError } = props;
+
+
+  const handleError = (error) => {
+    console.log(error);
+    publishError(error);
+  }
 
 
   const queryRowsData = query => {
@@ -21,8 +30,7 @@ const Container = (props) => {
           resolve({data: apiData});
         },
         error => {
-          // TODO: reject(error);
-          console.log(error);
+          handleError(error);
 
           resolve({data: []});
         }
@@ -40,8 +48,7 @@ const Container = (props) => {
           resolve(apiData);
         },
         error => {
-          // TODO: reject(error);
-          console.log(error);
+          handleError(error);
 
           resolve(data);
         }
@@ -60,4 +67,10 @@ const Container = (props) => {
 };
 
 
-export default Container;
+const mapStateToProps = () => ({
+  todo: 'TODO'
+});
+
+export default connect(mapStateToProps, {
+  publishError
+})(Container);
