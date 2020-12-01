@@ -9,6 +9,8 @@ import {
   rateMovie
 } from '../controllers/ratings';
 
+export { handleRestApiError } from '../controllers/ratings';
+
 
 router.route('/movie_ratings')
   .get(getAllRatings)
@@ -29,4 +31,5 @@ function(req, res, next) {
   res.json({'message': 'TODO'});
 });
 
-module.exports = router;
+
+export default router;

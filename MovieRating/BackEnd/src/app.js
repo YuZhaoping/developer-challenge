@@ -6,14 +6,14 @@ var cors = require('cors');
 
 
 var indexRouter = require('./routes/index');
-var apisRouter = require('./routes/apis');
-
-var app = express();
-
+import apisRouter, { handleRestApiError } from './routes/apis';
 
 import config from './config';
 import loaders from './loaders';
 import serviceSupplier from './services/supplier';
+
+
+const app = express();
 
 app.config = config;
 
@@ -32,6 +32,8 @@ app.use(cors(corsOptions));
 
 app.use('/', indexRouter);
 app.use('/api/v1', apisRouter);
+
+app.use(handleRestApiError);
 
 
 async function startApp() {
