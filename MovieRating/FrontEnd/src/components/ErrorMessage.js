@@ -60,7 +60,7 @@ const MessageBar = (props) => {
 
 
 const ErrorMessage = (props) => {
-  const { error, isNew, removeError } = props;
+  const { error, removeError } = props;
 
   const onClose = () => {
     error && removeError(error);
@@ -82,7 +82,7 @@ const ErrorMessage = (props) => {
 const mapStateToProps = ({ errorsProfile }) => {
   const { currentError, isNew } = errorsProfile;
 
-  return { error: currentError, isNew };
+  return { error: (isNew ? currentError : null) };
 };
 
 export default connect(mapStateToProps, {
