@@ -2,8 +2,25 @@
 
 import ratingService from '../services/ratings';
 
+import RestApiError from '../errors/RestApiError';
+
 
 const apiVersion = 'v1';
+
+
+export const handleRestApiError = (err, req, res, next) => {
+  let apiError;
+  if (err instanceof RestApiError) {
+    apiError = err;
+  } else {
+    apiError = new RestApiError(err.message, err);
+  }
+
+  const statusCode = apiError.getStatusCode();
+  const error = apiError.simplify();
+
+  res.status(statusCode).json({ apiVersion, error });
+};
 
 
 export const getAllRatings = async (req, res, next) => {
