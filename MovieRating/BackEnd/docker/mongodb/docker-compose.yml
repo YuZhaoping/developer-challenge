@@ -28,6 +28,13 @@ volumes:
     driver: local
     name: mongo-configdb
 
+networks:
+
+  default:
+    external:
+      name: ${NETWORK_NAME}
+
+
 ###
 # To start: docker-compose up --build -d mongodb
 # To stop:  docker-compose down -v mongodb
