@@ -15,6 +15,5 @@ else
   echo "Compose up the service container '${CONTAINER_NAME}' ..."
 
   cd ../ && \
-  docker-compose --env-file ./docker/DOCKER.variables \
-    up ${BUILD_OPT} -d
+  docker-compose up ${BUILD_OPT} -d
 fi
