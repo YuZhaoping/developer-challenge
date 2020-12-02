@@ -1,6 +1,7 @@
 version: '3.7'
 
 services:
+
   mongodb:
     container_name: mongodb
     image: mongo:latest
@@ -19,6 +20,7 @@ services:
       - ./_home:/home/mongodb
 
 volumes:
+
   mongo-db:
     driver: local
     name: mongo-db
