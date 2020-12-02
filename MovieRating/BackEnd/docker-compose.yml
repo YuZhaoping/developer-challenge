@@ -4,8 +4,12 @@ services:
 
   backend:
     container_name: ${CONTAINER_NAME}
+    hostname: ${CONTAINER_NAME}
     build: .
     image: ${IMAGE_FULL_NAME}
+    env_file:
+      - ./docker/mongodb/.env
+      - ./docker/mongodb/MONGODB.variables
     ports:
       - "4000:4000"
 

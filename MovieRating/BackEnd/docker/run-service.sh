@@ -14,7 +14,8 @@ else
   echo "Start running the service container '${CONTAINER_NAME}' ..."
 
   docker run -d --name ${CONTAINER_NAME} \
-    --network=${NETWORK_NAME} --net-alias=${CONTAINER_NAME} \
+    --network=${NETWORK_NAME} --hostname=${CONTAINER_NAME} --net-alias=${CONTAINER_NAME} \
+    --env-file ./mongodb/.env --env-file ./mongodb/MONGODB.variables \
     -p 4000:4000 \
     ${IMAGE_FULL_NAME}
 fi

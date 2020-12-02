@@ -4,6 +4,7 @@ services:
 
   mongodb:
     container_name: ${MONGODB_HOSTNAME}
+    hostname: ${MONGODB_HOSTNAME}
     image: mongo:latest
     ports:
       - "27017:27017"
