@@ -8,10 +8,9 @@ services:
     image: ${IMAGE_FULL_NAME}
     ports:
       - "4000:4000"
-    networks:
-      - backend-net
 
 networks:
-  backend-net:
-    driver: bridge
-    name: ${NETWORK_NAME}
+
+  default:
+    external:
+      name: ${NETWORK_NAME}
