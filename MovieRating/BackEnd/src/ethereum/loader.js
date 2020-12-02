@@ -4,7 +4,11 @@ import mockEthereum from './mock-agent';
 
 
 const init = async ({ config }) => {
-  let ethereumAgent = kaleidoAgent;
+  let ethereumAgent = mockEthereum;
+
+  if (config.ethereum.agent === 'kaleido') {
+    ethereumAgent = kaleidoAgent
+  }
 
   try {
       await ethereumAgent.init({ self: ethereumAgent, config });
@@ -13,7 +17,7 @@ const init = async ({ config }) => {
     console.log(err);
 
     if (ethereumAgent !== mockEthereum) {
-      console.log('Use the mock Ethereum agent instead.');
+      console.log('Use the mock ethereum agent instead.');
 
       ethereumAgent = mockEthereum;
 
