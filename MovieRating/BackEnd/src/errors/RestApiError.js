@@ -3,7 +3,7 @@ export default class RestApiError extends Error {
   constructor(message, cause) {
     super(message);
 
-    this.name = 'RestApiError';
+    this.name = this.constructor.name;
 
     this.errorCode = null;
     this.errors = null;
@@ -11,7 +11,11 @@ export default class RestApiError extends Error {
     this.statusCode = 500;
 
     if (cause) {
+      this.stack = cause.stack;
+
       this.addError(cause);
+    } else {
+      Error.captureStackTrace(this, this.constructor);
     }
   }
 
@@ -59,6 +63,10 @@ export default class RestApiError extends Error {
       statusCode: this.statusCode,
       message: this.message
     };
+
+    if (includesStack) {
+      simplified.stack = this.stack;
+    }
 
     if (this.errors) {
       const simplifiedErrs = this.errors.map(err => doSimplify(err, includesStack));
