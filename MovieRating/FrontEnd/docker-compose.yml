@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+
+  frontend:
+    container_name: ${CONTAINER_NAME}
+    hostname: ${CONTAINER_NAME}
+    build: .
+    image: ${IMAGE_FULL_NAME}
+    ports:
+      - "3000:80"
+
+networks:
+
+  default:
+    external:
+      name: ${FRONTEND_NETWORK_NAME}

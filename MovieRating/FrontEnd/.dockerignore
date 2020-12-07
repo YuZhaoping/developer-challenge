@@ -1,0 +1,14 @@
+Dockerfile
+.dockerignore
+.gitignore
+.directory
+.env
+docker-compose.yml
+node_modules/
+docker/
+public/
+src/
+README.md
+package.json
+package-lock.json
+yarn.lock
