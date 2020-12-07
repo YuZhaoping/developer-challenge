@@ -12,7 +12,7 @@ fi
 if docker ps -a | grep -q "${CONTAINER_NAME}"; then
   echo "The service container '${CONTAINER_NAME}' already exists."
 else
-  ./networks/setup.sh
+  ../../docker/networks/setup.sh
 
   echo "Compose up the service container '${CONTAINER_NAME}' ..."
 

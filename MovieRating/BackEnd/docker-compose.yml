@@ -12,9 +12,16 @@ services:
       - ./docker/mongodb/MONGODB.variables
     ports:
       - "4000:4000"
+    networks:
+      - backend-net
+      - frontend-net
 
 networks:
 
-  default:
+  backend-net:
     external:
-      name: ${NETWORK_NAME}
+      name: ${BACKEND_NETWORK_NAME}
+
+  frontend-net:
+    external:
+      name: ${FRONTEND_NETWORK_NAME}

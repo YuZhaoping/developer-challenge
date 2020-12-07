@@ -32,7 +32,7 @@ networks:
 
   default:
     external:
-      name: ${NETWORK_NAME}
+      name: ${BACKEND_NETWORK_NAME}
 
 
 ###
